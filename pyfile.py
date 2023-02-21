@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import sklearn.datasets
+from sklearn import datasets
 
 st.title("Streamlit Test")
 st.write("""Machine Learning Classifier""")
@@ -15,11 +15,11 @@ className = st.sidebar.selectbox("Select Classifier", ("K Nears Neighbor", "Supp
 
 def dtFrame(dataSet):
     if dataSet == "Iris":
-        data = sklearn.datasets.load_iris()
+        data = datasets.load_iris()
     elif dataSet == "Breast Cancer":
-        data = sklearn.datasets.load_breast_cancer()
+        data = datasets.load_breast_cancer()
     else:
-        data = sklearn.datasets.load_wine()
+        data = datasets.load_wine()
     x = data.data
     y = data.target
     return x, y
