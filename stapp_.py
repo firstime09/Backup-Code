@@ -9,7 +9,7 @@ status = st.sidebar.radio('Select your height format: ',
  
 if(status == 'cms'):
     # take height input in centimeters
-    height = st.number_input('Centimeters')
+    height = st.sidebar.number_input('Centimeters')
  
     try:
         bmi = weight / ((height/100)**2)
