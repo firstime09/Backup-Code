@@ -2,11 +2,11 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from io import StringIO
-from mylib.module import myfunction as mf
+from mylib.module import myfunction
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-
+mf = myfunction()
 st.title("Streamlit Test")
 st.write("""Machine Learning Classifier""")
 
