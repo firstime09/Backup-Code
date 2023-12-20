@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as pd
-from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -22,10 +22,10 @@ class myfunction():
     
     def tambah_parm(parm):
         parms = dict()
-        if parm == 'K Nears Neighbor':
-            K = st.sidebar.slider('K', 1, 15)
-            parms['K'] = K
-        elif parm == 'Support Vector Machine':
+        # if parm == 'K Nears Neighbor':
+        #     K = st.sidebar.slider('K', 1, 15)
+        #     parms['K'] = K
+        if parm == 'Support Vector Machine':
             C = st.sidebar.slider('C', 0.01, 10.0)
             parms['C'] = C
         elif parm == 'Neural Network':
@@ -40,9 +40,9 @@ class myfunction():
     
     def pilih_class(algorithm, params):
         algo = None
-        if algorithm == 'K Nears Neighbor':
-            algo = KNeighborsClassifier(n_neighbors=params['K'])
-        elif algorithm == 'Support Vector Machine':
+        # if algorithm == 'K Nears Neighbor':
+        #     algo = KNeighborsClassifier(n_neighbors=params['K'])
+        if algorithm == 'Support Vector Machine':
             algo = SVC(kernel='rbf', C=params['C'])
         elif algorithm == 'Neural Network':
             algo = MLPClassifier(alpha=params['alpha'], random_state=1234)
