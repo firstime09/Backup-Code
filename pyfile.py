@@ -23,7 +23,8 @@ dataSet = st.sidebar.selectbox("Select Dataset", ("Iris", "Breast Cancer", "Wine
 className = st.sidebar.selectbox("Select Classifier", ("K Nears Neighbor", "Support Vector Machine", "Random Forest",
                                                        "Neural Network"))
 
-x, y = mf.dtFrame(dataSet)
+loaddt = mf.dtFrame(dataSet)
+x, y = loaddt
 st.write("Shape of data", x.shape)
 st.write("Number of class", len(np.unique(y)))
 
