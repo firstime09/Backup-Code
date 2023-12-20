@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import numpy as pd
+import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn import datasets
 
 class myfunction():
-
+    @staticmethod
     def dtFrame(dataSet):
         if dataSet == "Iris":
             data = datasets.load_iris()
@@ -20,6 +20,7 @@ class myfunction():
         y = data.target
         return x, y
     
+    @staticmethod
     def tambah_parm(parm):
         parms = dict()
         if parm == 'K Nears Neighbor':
@@ -38,6 +39,7 @@ class myfunction():
             parms['n_estimators'] = n_estimator
         return parms
     
+    @staticmethod
     def pilih_class(algorithm, params):
         algo = None
         if algorithm == 'K Nears Neighbor':
@@ -48,5 +50,5 @@ class myfunction():
             algo = MLPClassifier(alpha=params['alpha'], random_state=1234)
         else:
             algo = RandomForestClassifier(n_estimators=params['n_estimators'],
-                                      max_depth=params['max_depth'], random_state=1234)
+                                          max_depth=params['max_depth'], random_state=1234)
         return algo
